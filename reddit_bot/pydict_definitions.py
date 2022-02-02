@@ -4,7 +4,7 @@ from PyDictionary import PyDictionary
 dictionary = PyDictionary()
 
 
-def get_definition(word):
+def get_pydict_definition(word):
     dictionary_meaning = dictionary.meaning(word)
     # TODO: Exception handling for words not in the dictionary
 
