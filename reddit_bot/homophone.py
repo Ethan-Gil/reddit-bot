@@ -58,5 +58,6 @@ def find_homophone(word):
                 return "No homophone found"
 
 
+# Temporary for testing purposes
 init_database()
 print(find_homophone("awhile"))
