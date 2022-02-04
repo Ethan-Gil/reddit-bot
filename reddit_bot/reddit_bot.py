@@ -10,7 +10,7 @@ reddit = praw.Reddit(
 )
 
 # We will be looking through the Python Subreddit
-subreddit = reddit.subreddit('Python')
+subreddit = reddit.subreddit('LlamaEgg')
 
 # Iterating through the current five hottest submissions in a subreddit
 # Complexity O(n^3), though realistically it is far less since two of the loops contain limit constraints

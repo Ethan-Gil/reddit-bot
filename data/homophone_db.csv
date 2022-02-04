@@ -342,7 +342,6 @@ word_id,text,spelling,relation_id
 341,cee,cee,150
 342,sea,sea,150
 343,see,see,150
-344,c's,c's,151
 345,cees,cees,151
 346,seas,seas,151
 347,sees,sees,151
@@ -387,8 +386,6 @@ word_id,text,spelling,relation_id
 386,K9,K9,169
 387,cannon,cannon,170
 388,canon,canon,170
-389,can't,can't,171
-390,cant,cant,171
 391,canter,canter,172
 392,cantor,cantor,172
 393,canvas,canvas,173
@@ -775,8 +772,6 @@ word_id,text,spelling,relation_id
 774,duct,duct,344
 775,dyeing,dyeing,345
 776,dying,dying,345
-777,e's,e's,346
-778,ease,ease,346
 779,earn,earn,347
 780,erne,erne,347
 781,urn,urn,347
@@ -1180,8 +1175,6 @@ word_id,text,spelling,relation_id
 1179,hours,hours,534
 1180,ours,ours,534
 1181,house,house,535
-1182,how's,how's,535
-1183,hows,hows,535
 1184,humerus,humerus,536
 1185,humorous,humorous,536
 1186,idle,idle,537
@@ -1223,8 +1216,6 @@ word_id,text,spelling,relation_id
 1222,instants,instants,554
 1223,intense,intense,555
 1224,intents,intents,555
-1225,it's,it's,556
-1226,its,its,556
 1227,j,j,557
 1228,jay,jay,557
 1229,jab,jab,558
@@ -1355,8 +1346,6 @@ word_id,text,spelling,relation_id
 1354,lessor,lessor,614
 1355,let,let,615
 1356,Lett,Lett,615
-1357,let's,let's,616
-1358,lets,lets,616
 1359,Letts,Letts,616
 1360,levee,levee,617
 1361,levy,levy,617
@@ -2161,8 +2150,6 @@ word_id,text,spelling,relation_id
 2160,sheer,sheer,983
 2161,shears,shears,984
 2162,sheers,sheers,984
-2163,she's,she's,985
-2164,shes,shes,985
 2165,shifery,shifery,986
 2166,shivaree,shivaree,986
 2167,shivary,shivary,986
@@ -2658,8 +2645,6 @@ word_id,text,spelling,relation_id
 2657,wyes,wyes,1207
 2658,wins,wins,1208
 2659,winze,winze,1208
-2660,won't,won't,1209
-2661,wont,wont,1209
 2662,wood,wood,1210
 2663,would,would,1210
 2664,worst,worst,1211
