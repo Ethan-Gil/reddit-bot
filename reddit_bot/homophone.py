@@ -1,8 +1,9 @@
 from webdict_definitions import get_definition
 import csv
 
-# Global Homophone Database
+# Global Homophone Database and word list
 database = []
+word_list = []
 
 
 # Importing the homophone data from a CSV file and converting it into a 2D array
@@ -11,6 +12,13 @@ def import_data():
     data = list(csv.reader(open(file)))
     del data[0]     # Removing the first row of the CSV file since it doesn't contain data
     return data
+
+
+# Creating a simple list that contains all the words in the database
+def create_word_database():
+    global word_list
+    for index, row in enumerate(database):
+        word_list.append(row[2])            # In the database, words are kept in the 3rd column
 
 
 # Initializing the database
@@ -24,7 +32,7 @@ def init_database():
 
 
 # Method that will search the word bank for a homophone of a word, and return the
-def find_homophone(word):
+def find_associated_homophone(word):
     found = False
 
     # Iterating through each row in the CSV file and checking to see if the word exists
@@ -58,6 +66,30 @@ def find_homophone(word):
                 return "No homophone found"
 
 
-# Temporary for testing purposes
+# Returns true if the given word is a homophone (it's in the word list)
+def is_homophone(word):
+    if word in word_list:
+        return True
+
+    return
+
+
+# Given a list of words (from a reddit comment) this method will check to see which words in the list
+# are homophones, and then return the longest one.
+# If there are no homophones in the comment, false is returned
+def find_longest_homophone(comment_words):
+    homophones = []
+    for word in comment_words:
+        if is_homophone(word):
+            homophones.append(word)
+
+    # Returning the longest homophone in the list
+    if homophones:
+        return max(homophones, key=len)
+
+    return False
+
+
+# Initiating the global database and the word list
 init_database()
-print(find_homophone("awhile"))
+create_word_database()

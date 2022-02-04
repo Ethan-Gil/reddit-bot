@@ -1,7 +1,7 @@
 import requests
 import config
 
-api_url = f'https://www.dictionaryapi.com/api/v3/references/collegiate/json/%s?key={config.api_key}'
+api_url = f'https://www.dictionaryapi.com/api/v3/references/collegiate/json/%s?key={config.API_KEY}'
 
 
 # Sends a request to the API, handles the response data, and prints the definition of the word
