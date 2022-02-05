@@ -1,6 +1,7 @@
 import praw
 import config
 import time
+from log_comment import log_comment
 from homophone import find_associated_homophone, find_longest_homophone
 
 # Creating a Reddit instance
@@ -33,10 +34,11 @@ for submission in subreddit.hot(limit=25):
                 print("\t>" + str(find_associated_homophone(target_word)))
 
                 # Commenting
-                # comment.reply(find_associated_homophone(target_word))
-                # time.sleep(660) # Sleeping for 11 minutes
+                comment_reply = find_associated_homophone(target_word)
+                comment.reply(comment_reply)
+                log_comment(comment_reply)
 
-                # TODO: Log the information including the time of comment
+                time.sleep(660) # Sleeping for 11 minutes
                 break
 
     print()
