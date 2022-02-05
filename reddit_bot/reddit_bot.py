@@ -8,7 +8,9 @@ from homophone import find_associated_homophone, find_longest_homophone
 reddit = praw.Reddit(
     client_id=config.CLIENT_ID,
     client_secret=config.CLIENT_SECRET,
-    user_agent='<console:MistakenBot:1.0>'
+    user_agent='<console:MistakenBot:1.0>',
+    username=config.USERNAME,
+    password=config.PASSWORD
 )
 
 # We will be looking through the Python Subreddit
@@ -38,7 +40,7 @@ for submission in subreddit.hot(limit=25):
                 comment.reply(comment_reply)
                 log_comment(comment_reply)
 
-                time.sleep(660) # Sleeping for 11 minutes
+                time.sleep(660)  # Sleeping for 11 minutes
                 break
 
     print()
