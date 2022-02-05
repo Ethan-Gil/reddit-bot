@@ -18,7 +18,7 @@ def import_data():
 def create_word_database():
     global word_list
     for index, row in enumerate(database):
-        word_list.append(row[2])            # In the database, words are kept in the 3rd column
+        word_list.append(row[1])            # In the database, words are kept in the 2nd column
 
 
 # Initializing the database
@@ -33,29 +33,28 @@ def init_database():
 
 # Method that will search the word bank for a homophone of a word, and return the
 def find_associated_homophone(word):
-    found = False
 
     # Iterating through each row in the CSV file and checking to see if the word exists
     for index, row in enumerate(database):
         if word in row:
-            found = True
+            relation_id_col = 2
 
             # The relation_id is how multiple homophones in the word bank are connected
             # The database is structured so that homophones are grouped together, so if a word has
             # a homophone, it will either be directly above or below it and contain the same relation_id
-            relation_id = row[3]
+            relation_id = row[relation_id_col]
 
             # Checking the row above the current index
-            if index > 0 and relation_id == database[index - 1][3]:
+            if index > 0 and relation_id == database[index - 1][relation_id_col]:
                 homophone = database[index - 1][1]
 
-            elif relation_id == database[index + 1][3]:
+            elif relation_id == database[index + 1][relation_id_col]:
                 homophone = database[index + 1][1]
 
             # If a word has been found and the definition exists, then that definition is returned.
             # If the definition is not valid though (error code 1) then an Error message will be printed.
-            # TODO: Consider using the PyDictionary definition is the Webster's definition isnt available
-            if found:
+            # TODO: Consider using the PyDictionary definition is the Webster's definition isn't available
+            if homophone:
                 if get_definition(homophone) == 1:
                     print("Error: Definition not found")
                     return

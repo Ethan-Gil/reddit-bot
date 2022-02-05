@@ -25,3 +25,6 @@ def get_definition(given_word):
 
     except requests.Timeout as error:
         print(error)
+
+    # except Exception as error:
+    #     print("General Error")
