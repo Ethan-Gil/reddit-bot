@@ -5,7 +5,7 @@ api_url = f'https://www.dictionaryapi.com/api/v3/references/collegiate/json/%s?k
 
 
 # Sends a request to the API, handles the response data, and prints the definition of the word
-def get_definition(given_word):
+def get_definition(given_word, original_word):
     try:
         response = requests.get(api_url % given_word, timeout=3)
         data = response.json()  # Storing the response data, which is a list of dictionaries containing word meanings.
@@ -13,7 +13,7 @@ def get_definition(given_word):
         definition = word_info['shortdef'][0]  # Since we only want one definition, we will find the first element in the value list corresponding to the shortdef key
 
         if definition:
-            return f'Webster\'s Dictionary Defines {given_word} as "{definition}"'
+            return f'Webster\'s Dictionary Defines {given_word} as "{definition}" - oh wait, did you mean "{original_word}"?'
 
         else:
             return 'Definition not found'

@@ -18,8 +18,8 @@ subreddit = reddit.subreddit('All')
 
 # Iterating through the current five hottest submissions in a subreddit
 # Complexity O(n^3), though realistically it is far less since two of the loops contain limit constraints
-# O(5 * 10 * n) = O(n)
-for submission in subreddit.hot(limit=25):
+# O(m * 10 * n) = O(n)
+for submission in subreddit.hot(limit=50):
     print("Title:\t" + submission.title)
 
     # Iterating through the first ten comments in a submission
@@ -40,7 +40,7 @@ for submission in subreddit.hot(limit=25):
                 comment.reply(comment_reply)
                 log_comment(comment_reply)
 
-                time.sleep(660)  # Sleeping for 11 minutes
+                time.sleep(30)  # Sleeping for 30 seconds
                 break
 
     print()

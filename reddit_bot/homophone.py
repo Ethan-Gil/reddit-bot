@@ -55,11 +55,11 @@ def find_associated_homophone(word):
             # If the definition is not valid though (error code 1) then an Error message will be printed.
             # TODO: Consider using the PyDictionary definition is the Webster's definition isn't available
             if homophone:
-                if get_definition(homophone) == 1:
+                if get_definition(homophone, word) == 1:
                     print("Error: Definition not found")
                     return
 
-                return get_definition(homophone)
+                return get_definition(homophone, word)
 
             else:
                 return "No homophone found"
