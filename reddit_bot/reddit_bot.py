@@ -2,6 +2,7 @@ import praw
 import config
 import time
 from log_comment import log_comment
+from log_exception import log_exception
 from homophone import find_associated_homophone, find_longest_homophone
 
 # Creating a Reddit instance
@@ -19,29 +20,37 @@ subreddit = reddit.subreddit('All')
 # Iterating through the current five hottest submissions in a subreddit
 # Complexity O(n^3), though realistically it is far less since two of the loops contain limit constraints
 # O(m * 10 * n) = O(n)
-for submission in subreddit.hot(limit=50):
+for submission in subreddit.rising(limit=100):
     print("Title:\t" + submission.title)
 
     # Iterating through the first ten comments in a submission
     for index, comment in enumerate(submission.comments):
-        if index < 10 and hasattr(comment, 'body'):
-            comment_words = str(comment.body.lower()).split()   # Converting a comment to a lowercase list of words
 
-            # If a comment contains a homophone, then it'll be printed onto the console.
-            # If there are multiple homophones, then the longest one will be printed
-            target_word = find_longest_homophone(comment_words)     # Complexity: O(n)
-            if target_word:
+        try:
 
-                # Printing for testing purposes
-                print("\t>" + str(find_associated_homophone(target_word)))
+            if index < 10 and hasattr(comment, 'body'):
+                comment_words = str(comment.body.lower()).split()   # Converting a comment to a lowercase list of words
 
-                # Commenting
-                comment_reply = find_associated_homophone(target_word)
-                comment.reply(comment_reply)
-                log_comment(str(submission.title), comment_reply)
+                # If a comment contains a homophone, then it'll be printed onto the console.
+                # If there are multiple homophones, then the longest one will be printed
+                target_word = find_longest_homophone(comment_words)     # Complexity: O(n)
+                if target_word:
 
-                time.sleep(30)  # Sleeping for 30 seconds
-                break
+                    # Printing for testing purposes
+                    print("\t>" + str(find_associated_homophone(target_word)))
+
+                    # Commenting
+                    # comment_reply = find_associated_homophone(target_word)
+                    # comment.reply(comment_reply)
+                    # log_comment(str(submission.title), comment_reply)
+
+                    time.sleep(20)  # Sleeping for 20 seconds
+                    break
+
+        except Exception as e:
+            log_exception(str(e))
+            print(e)
+            pass
 
     print()
 

@@ -1,7 +1,9 @@
 from webdict_definitions import get_definition
 import csv
 
-# Global Homophone Database and word list
+# Global Homophone Database and word list.
+# The word list will simply be a list of every word in the database,
+# whereas the database is a table with each row containing the word id, word, and it's relation id.
 database = []
 word_list = []
 
@@ -14,13 +16,6 @@ def import_data():
     return data
 
 
-# Creating a simple list that contains all the words in the database
-def create_word_database():
-    global word_list
-    for index, row in enumerate(database):
-        word_list.append(row[1])            # In the database, words are kept in the 2nd column
-
-
 # Initializing the database
 def init_database():
     global database
@@ -29,6 +24,13 @@ def init_database():
     if not database:
         database = import_data()
         return
+
+
+# Creating a simple list that contains all the words in the database
+def create_word_database():
+    global word_list
+    for index, row in enumerate(database):
+        word_list.append(row[1])            # In the database, words are kept in the 2nd column
 
 
 # Method that will search the word bank for a homophone of a word, and return the
@@ -53,16 +55,23 @@ def find_associated_homophone(word):
 
             # If a word has been found and the definition exists, then that definition is returned.
             # If the definition is not valid though (error code 1) then an Error message will be printed.
-            # TODO: Consider using the PyDictionary definition is the Webster's definition isn't available
             if homophone:
                 if get_definition(homophone, word) == 1:
-                    print("Error: Definition not found")
+                    print("Definition-not-found Error")
+                    return
+
+                elif get_definition(homophone, word) == 2:
+                    print("Timeout Error")
+                    return
+
+                elif get_definition(homophone, word) == 3:
+                    print("General Error")
                     return
 
                 return get_definition(homophone, word)
 
             else:
-                return "No homophone found"
+                return "Error: No homophone found"
 
 
 # Returns true if the given word is a homophone (it's in the word list)
