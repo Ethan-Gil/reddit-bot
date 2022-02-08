@@ -18,6 +18,9 @@ CLIENT_ID:      Reddit API Client ID
 
 CLIENT_SECRET:  Reddit API Client Secret Key 
 
+USERNAME:       Username for the Reddit account associated with the bot
+
+PASSWORD:       Password for the Reddit account associated with the bot
 >You'll need you sign up for a reddit account, and create an application at https://www.reddit.com/prefs/apps/
 
 
