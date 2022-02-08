@@ -38,7 +38,7 @@ for submission in subreddit.hot(limit=50):
                 # Commenting
                 comment_reply = find_associated_homophone(target_word)
                 comment.reply(comment_reply)
-                log_comment(comment_reply)
+                log_comment(str(submission.title), comment_reply)
 
                 time.sleep(30)  # Sleeping for 30 seconds
                 break
