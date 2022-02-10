@@ -1,7 +1,7 @@
 from webdict_definitions import get_definition
 import csv
 
-# Global Homophone Database and word list.
+# Global homophone database and word list.
 # The word list will simply be a list of every word in the database,
 # whereas the database is a table with each row containing the word id, word, and it's relation id.
 database = []
@@ -33,7 +33,7 @@ def create_word_database():
         word_list.append(row[1])            # In the database, words are kept in the 2nd column
 
 
-# Method that will search the word bank for a homophone of a word, and return the
+# Method that will search the word bank for a homophone of a word, and return it if found
 def find_associated_homophone(word):
 
     # Iterating through each row in the CSV file and checking to see if the word exists
@@ -46,7 +46,7 @@ def find_associated_homophone(word):
             # a homophone, it will either be directly above or below it and contain the same relation_id
             relation_id = row[relation_id_col]
 
-            # Checking the row above the current index
+            # Checking the rows above and below the current row
             if index > 0 and relation_id == database[index - 1][relation_id_col]:
                 homophone = database[index - 1][1]
 
@@ -57,15 +57,17 @@ def find_associated_homophone(word):
             # If the definition is not valid though (error code 1) then an Error message will be printed.
             if homophone:
                 if get_definition(homophone, word) == 1:
-                    print("Definition-not-found Error")
+                    print("\nError:\t\tDefinition-Not-Found Error")
+                    print("Homophone: " + homophone)
+                    print("Original Word: " + word)
                     return
 
                 elif get_definition(homophone, word) == 2:
-                    print("Timeout Error")
+                    print("\nError:\t\tTimeout Error")
                     return
 
                 elif get_definition(homophone, word) == 3:
-                    print("General Error")
+                    print("\nError:\t\tGeneral Error")
                     return
 
                 return get_definition(homophone, word)

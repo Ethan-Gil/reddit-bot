@@ -47,8 +47,6 @@ word_id,text,relation_id
 122,axle,52
 131,bail,56
 132,bale,56
-142,bare,60
-143,bear,60
 150,baize,64
 151,bays,64
 152,beys,64
@@ -111,8 +109,6 @@ word_id,text,relation_id
 238,build,104
 239,bird,105
 241,burred,105
-248,blew,109
-249,blue,109
 252,boar,111
 253,boer,111
 254,bore,111
@@ -369,8 +365,6 @@ word_id,text,relation_id
 683,current,301
 688,cymbal,304
 689,symbol,304
-700,days,310
-701,daze,310
 704,dear,312
 705,deer,312
 710,dense,315
@@ -396,8 +390,6 @@ word_id,text,relation_id
 776,dying,345
 788,elicit,351
 789,illicit,351
-798,equivalence,356
-799,equivalents,356
 802,eruption,358
 803,irruption,358
 804,eruptive,359
@@ -424,8 +416,6 @@ word_id,text,relation_id
 919,flee,411
 920,flecks,412
 921,flex,412
-922,flew,413
-923,flu,413
 927,floc,415
 928,flock,415
 929,flocks,416
@@ -513,8 +503,6 @@ word_id,text,relation_id
 1326,led,600
 1329,leak,602
 1330,leek,602
-1339,leased,607
-1340,least,607
 1351,lessen,613
 1352,lesson,613
 1377,lie,625
@@ -586,8 +574,6 @@ word_id,text,relation_id
 1524,mist,693
 1530,moat,696
 1531,mote,696
-1532,mode,697
-1533,mowed,697
 1534,mood,698
 1535,mooed,698
 1536,moose,699
@@ -731,8 +717,6 @@ word_id,text,relation_id
 2352,teems,1072
 2393,throne,1090
 2394,thrown,1090
-2395,thyme,1091
-2396,time,1091
 2402,tide,1094
 2403,tied,1094
 2404,tighten,1095
@@ -782,8 +766,6 @@ word_id,text,relation_id
 2581,week,1174
 2582,weakly,1175
 2583,weekly,1175
-2626,whine,1194
-2627,wine,1194
 2763,rooted,1264
 2764,routed,1264
 2765,rooting,1265
