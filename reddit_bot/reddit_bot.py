@@ -15,15 +15,15 @@ reddit = praw.Reddit(
 )
 
 # We will be looking through the Python Subreddit
-subreddit = reddit.subreddit('memes')
+subreddit = reddit.subreddit('Memes')
 
 comment_limit = 10  # The number of comments in a submission that should be read
-time_limit = 2     # The number of seconds that the bot will sleep after posting a comment
+time_limit = 30     # The number of seconds that the bot will sleep after posting a comment
 
 # Iterating through the current five hottest submissions in a subreddit
 # Complexity O(n^3), though realistically it is far less since two of the loops contain limit constraints
 # O(m * 10 * n) = O(n)
-for submission in subreddit.rising(limit=200):
+for submission in subreddit.hot(limit=100):
     for index, comment in enumerate(submission.comments):
 
         try:
@@ -41,9 +41,9 @@ for submission in subreddit.rising(limit=200):
                     print()
 
                     # Commenting
-                    # comment_reply = find_associated_homophone(target_word)    # Complexity: O(n)
-                    # comment.reply(comment_reply)
-                    # log_comment(str(submission.title), comment_reply)
+                    comment_reply = find_associated_homophone(target_word)    # Complexity: O(n)
+                    comment.reply(comment_reply)
+                    log_comment(str(submission.title), comment_reply)
 
                     time.sleep(time_limit)
                     break

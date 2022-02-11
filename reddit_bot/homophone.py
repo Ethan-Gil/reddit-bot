@@ -57,17 +57,17 @@ def find_associated_homophone(word):
             # If the definition is not valid though (error code 1) then an Error message will be printed.
             if homophone:
                 if get_definition(homophone, word) == 1:
-                    print("\nError:\t\tDefinition-Not-Found Error")
+                    print("Error:\t\tDefinition-Not-Found Error")
                     print("Homophone: " + homophone)
                     print("Original Word: " + word)
                     return
 
                 elif get_definition(homophone, word) == 2:
-                    print("\nError:\t\tTimeout Error")
+                    print("Error:\t\tTimeout Error")
                     return
 
                 elif get_definition(homophone, word) == 3:
-                    print("\nError:\t\tGeneral Error")
+                    print("Error:\t\tGeneral Error")
                     return
 
                 return get_definition(homophone, word)
