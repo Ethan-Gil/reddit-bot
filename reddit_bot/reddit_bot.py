@@ -9,7 +9,7 @@ from homophone import find_associated_homophone, find_longest_homophone
 reddit = praw.Reddit(
     client_id=config.CLIENT_ID,
     client_secret=config.CLIENT_SECRET,
-    user_agent='<console:MistakenBot:1.0>',
+    user_agent=config.USER_AGENT,
     username=config.USERNAME,
     password=config.PASSWORD
 )
@@ -18,7 +18,7 @@ reddit = praw.Reddit(
 subreddit = reddit.subreddit('memes')
 
 comment_limit = 10  # The number of comments in a submission that should be read
-time_limit = 20
+time_limit = 2     # The number of seconds that the bot will sleep after posting a comment
 
 # Iterating through the current five hottest submissions in a subreddit
 # Complexity O(n^3), though realistically it is far less since two of the loops contain limit constraints
@@ -45,11 +45,12 @@ for submission in subreddit.rising(limit=200):
                     # comment.reply(comment_reply)
                     # log_comment(str(submission.title), comment_reply)
 
-                    time.sleep(time_limit)  # Sleeping for 30 seconds
+                    time.sleep(time_limit)
                     break
 
+        # TODO: More indepth exception handling based on Reddit's API exceptions
         except Exception as e:
-            # log_exception(str(e))
+            # log_exception(str(e))     # Logging the exception
             print("\nException:")
             print(e)
             pass

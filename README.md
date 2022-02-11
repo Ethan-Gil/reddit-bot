@@ -4,7 +4,7 @@
 ###
 
 ## Configuration
-If you wish to run this yourself, you must create a config file within the reddit_bot directory where the following information should be placed:
+If you wish to run this yourself, you must create a config file within the root reddit_bot directory where the following information should be placed:
 ##
 
 ##### Webster's API
