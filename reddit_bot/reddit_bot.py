@@ -23,7 +23,7 @@ time_limit = 30     # The number of seconds that the bot will sleep after postin
 # Iterating through the current five hottest submissions in a subreddit
 # Complexity O(n^3), though realistically it is far less since two of the loops contain limit constraints
 # O(m * 10 * n) = O(n)
-for submission in subreddit.hot(limit=100):
+for submission in subreddit.rising(limit=100):
     for index, comment in enumerate(submission.comments):
 
         try:
