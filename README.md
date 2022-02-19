@@ -40,7 +40,7 @@ USER_AGENT:     The user agent is a unique and descriptive string involving the 
 
 ##
 
-If you wish to run this bot yourself, please ensure that you follow the rules
+Please ensure that you follow the rules
 and standards that have been established by Reddit regarding the use of bots.
 
 Detailed information may be found by clicking the following link:
